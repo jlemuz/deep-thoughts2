@@ -50,10 +50,13 @@ const Profile = (props) => {
 
   return (
     <div>
+          
+            <div >{!userParam && <ThoughtForm />}</div>
+
       <div className="flex-row mb-3">
-        <h2 className="bg-dark text-secondary p-3 display-inline-block">
+        {/* <h2 className="bg-dark text-secondary p-3 display-inline-block">
           Viewing {userParam ? `${user.username}'s` : 'your'} profile.
-        </h2>
+        </h2> */}
 
         {userParam && (
           <button className="btn ml-auto" onClick={handleClick}>
@@ -78,7 +81,6 @@ const Profile = (props) => {
           />
         </div>
       </div>
-      <div className="mb-3">{!userParam && <ThoughtForm />}</div>
     </div>
   );
 };

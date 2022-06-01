@@ -24,6 +24,13 @@ export const ADD_USER = gql`
   }
 `;
 
+export const REMOVE_THOUGHT = gql`
+mutation removeThought($thoughtId: ID!){
+  removeThought(thoughtId: $thoughtId) {
+    _id
+  }
+}`;
+
 export const ADD_THOUGHT = gql`
   mutation addThought($thoughtText: String!) {
     addThought(thoughtText: $thoughtText) {

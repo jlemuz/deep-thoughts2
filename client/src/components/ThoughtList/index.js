@@ -3,8 +3,11 @@ import { Link } from 'react-router-dom';
 // import { REMOVE_THOUGHT } from '../../utils/mutations';
 // import {useMutation } from '@apollo/client';
 // import Auth from "../../utils/auth";
+// import ChatBubbleIcon from '@mui/icons-material/ChatBubble';
 
-import { Grid, Card, CardMedia, Typography } from '@material-ui/core';
+import ChatBubbleIcon from '@material-ui/icons/ChatBubble';
+
+import { Grid, Card, CardMedia, Typography, Button } from '@material-ui/core';
 import useStyles from './styles';
 
 
@@ -54,12 +57,19 @@ const ThoughtList = ({ thoughts, title }) => {
         <CardMedia className={classes.media} image={thought.thoughtText} >
         </CardMedia>
         <div>
-          <div className={classes.details}>
-          <Typography variant="h6">
-                  Comments: {thought.reactionCount} || Click to{' '}
-                  {thought.reactionCount ? 'see' : 'start'} the comments!
+          <cardActions className={classes.cardActions}>
+            <Button size ="large" color="primary">
+            <ChatBubbleIcon></ChatBubbleIcon>
+            <Typography variant="h6">
+            {thought.reactionCount}
                </Typography>
 
+            </Button>
+
+            </cardActions>
+            <div>
+         
+               
           </div>
         </div>
         </Link>

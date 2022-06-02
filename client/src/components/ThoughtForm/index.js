@@ -152,7 +152,7 @@ const ThoughtForm = () => {
   return (
     <div>
   <form method="post" onChange={handleOnChange} value={thoughtText} onSubmit={handleOnSubmit}>
-        <div>
+        <div border>
           <p>  <PhotoCameraIcon size = "xlarge"></PhotoCameraIcon> 
           <Typography variant="h6">
             Upload your image

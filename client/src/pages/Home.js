@@ -1,8 +1,8 @@
 import React from "react";
 import ThoughtList from "../components/ThoughtList";
 import ThoughtForm from "../components/ThoughtForm";
-import FriendList from "../components/FriendList";
-import { useState } from "react";
+// import FriendList from "../components/FriendList";
+// import { useState } from "react";
 
 import Auth from "../utils/auth";
 import { useQuery } from "@apollo/client";
@@ -35,7 +35,7 @@ const Home = () => {
             <ThoughtList thoughts={thoughts} title="NewsFeed" />
           )}
         </div>
-        {loggedIn && userData ? (
+        {/* {loggedIn && userData ? (
           <div className="col-12 col-lg-3 mb-3">
             <FriendList
               username={userData.me.username}
@@ -43,7 +43,7 @@ const Home = () => {
               friends={userData.me.friends}
             />
           </div>
-        ) : null}
+        ) : null} */}
       </div>  
     </main>
   );

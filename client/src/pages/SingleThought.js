@@ -23,14 +23,14 @@ const SingleThought = (props) => {
 
   return (
     <div>
-      <div className="card mb-3">
-        <p className="card-header">
+      <div>
+        <p>
           <span style={{ fontWeight: 700 }} className="text-light">
             {thought.username}
           </span>{' '}
           {thought.createdAt}
         </p>
-        <div className="card-body">
+        <div className="card-body" align="center">
         <img src={thought.thoughtText} alt = "boo"  width="50%"></img>
         </div>
       </div>

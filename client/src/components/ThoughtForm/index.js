@@ -3,6 +3,10 @@ import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { ADD_THOUGHT } from '../../utils/mutations';
 import { QUERY_THOUGHTS, QUERY_ME } from '../../utils/queries';
+import { Typography } from '@material-ui/core';
+
+
+import PhotoCameraIcon from '@material-ui/icons/PhotoCamera';
 
 const ThoughtForm = () => {
   const [thoughtText, setText] = useState('');
@@ -148,9 +152,14 @@ const ThoughtForm = () => {
   return (
     <div>
   <form method="post" onChange={handleOnChange} value={thoughtText} onSubmit={handleOnSubmit}>
-        <p>
-          <input className="btn col-12 col-md-3" type="file" name="file" />
-        </p>
+        <div>
+          <p>  <PhotoCameraIcon size = "xlarge"></PhotoCameraIcon> 
+          <Typography variant="h6">
+            Upload your image
+            </Typography>
+          </p>
+            <input className="btn col-12 col-md-3" type="file" name="file" />
+        </div>
 
         <img src={imageSrc} height="20%" width="25%" />
 

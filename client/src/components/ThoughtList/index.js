@@ -57,7 +57,7 @@ const ThoughtList = ({ thoughts, title }) => {
         <CardMedia className={classes.media} image={thought.thoughtText} >
         </CardMedia>
         <div>
-          <cardActions className={classes.cardActions}>
+          <Card className={classes.cardActions}>
             <Button size ="large" color="primary">
             <ChatBubbleIcon></ChatBubbleIcon>
             <Typography variant="h6">
@@ -66,7 +66,7 @@ const ThoughtList = ({ thoughts, title }) => {
 
             </Button>
 
-            </cardActions>
+            </Card>
             <div>
          
                

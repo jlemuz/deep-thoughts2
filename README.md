@@ -3,7 +3,7 @@
   ## Table-of-Contents
   * [Description and Task](#description)
   * [Technology](#technology)
-  * [Video](#video)
+  * [Demo](#demo)
   * [Website](#website)
   * [License](#license)   
   * [Contributors](#Contributors)
@@ -67,6 +67,9 @@ Have a high-quality README (with unique name, description, technologies used, sc
   - Cloudinary
   - Concurrently
   - Nodemon
+
+  ## [Demo](#demo)
+  <img src="./Meme-ories.gif">
 
   ## [Website](#website)
   Deployed Application: https://guarded-bayou-92967.herokuapp.com/

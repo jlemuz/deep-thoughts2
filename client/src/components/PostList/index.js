@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import { REMOVE_THOUGHT } from '../../utils/mutations';
+// import { REMOVE_POST } from '../../utils/mutations';
 // import {useMutation } from '@apollo/client';
 // import Auth from "../../utils/auth";
 // import ChatBubbleIcon from '@mui/icons-material/ChatBubble';
@@ -11,24 +11,24 @@ import { Grid, Card, CardMedia, Typography, Button } from '@material-ui/core';
 import useStyles from './styles';
 
 
-const ThoughtList = ({ thoughts, title }) => {
+const PostList = ({ posts, title }) => {
 
   // const loggedIn = Auth.loggedIn();
   const classes = useStyles();
 
-//  const [removeThought] = useMutation(REMOVE_THOUGHT);
+//  const [removePost] = useMutation(REMOVE_POST);
 
 
 
-  if (!thoughts.length) {
-    return <h3>No Thoughts Yet</h3>;
+  if (!posts.length) {
+    return <h3>No Posts Yet</h3>;
   }
 
 
   // const handleClick = async () => {
   //   try {
-  //     await removeThought({
-  //       variables: { thoughtId: this.id },
+  //     await removePost({
+  //       variables: { postId: this.id },
   //     });
   //   } catch (e) {
   //     console.error(e);
@@ -39,29 +39,29 @@ const ThoughtList = ({ thoughts, title }) => {
   return (
     <div>
       <h3>{title}</h3>
-      {thoughts &&
-        thoughts.map(thought => (
+      {posts &&
+        posts.map(post => (
 
 
-          <div key={thought._id} className={classes.card}>
+          <div key={post._id} className={classes.card}>
 
   <Grid item xs={12} sm={7}>
       <Card className={classes.card}>
       <div className={classes.overlay}>
-            <Link to={`/profile/${thought.username}`}>
-            <Typography variant="h6">{thought.username}</Typography>
+            <Link to={`/profile/${post.username}`}>
+            <Typography variant="h6">{post.username}</Typography>
             </Link>
-            <Typography variant="h6">{thought.createdAt}</Typography>
+            <Typography variant="h6">{post.createdAt}</Typography>
           </div>
-      <Link to={`/thought/${thought._id}`}>
-        <CardMedia className={classes.media} image={thought.thoughtText} >
+      <Link to={`/post/${post._id}`}>
+        <CardMedia className={classes.media} image={post.postText} >
         </CardMedia>
         <div>
           <Card className={classes.cardActions}>
             <Button size ="large" color="primary">
             <ChatBubbleIcon></ChatBubbleIcon>
             <Typography variant="h6">
-            {thought.reactionCount}
+            {post.reactionCount}
                </Typography>
 
             </Button>
@@ -81,25 +81,25 @@ const ThoughtList = ({ thoughts, title }) => {
 
             {/* <p className="card-header">
               <Link
-                to={`/profile/${thought.username}`}
+                to={`/profile/${post.username}`}
                 style={{ fontWeight: 700 }}
                 className="text-light"
               >
-                {thought.username}
+                {post.username}
               </Link>{' '}
-              thought on {thought.createdAt}
+              post on {post.createdAt}
             </p>
             <div className="card-body">
-              <Link to={`/thought/${thought._id}`}>
-                <img src={thought.thoughtText} alt = "img not found" width="50%"></img>
-                <p>{thought._id}</p>
+              <Link to={`/post/${post._id}`}>
+                <img src={post.postText} alt = "img not found" width="50%"></img>
+                <p>{post._id}</p>
                 <p className="mb-0">
-                  Comments: {thought.reactionCount} || Click to{' '}
-                  {thought.reactionCount ? 'see' : 'start'} the comments!
+                  Comments: {post.reactionCount} || Click to{' '}
+                  {post.reactionCount ? 'see' : 'start'} the comments!
                 </p>
               </Link>
-            {loggedIn &&  <button id={thought._id} className="btn ml-auto" onClick={handleClick}>
-            Delete Thought
+            {loggedIn &&  <button id={post._id} className="btn ml-auto" onClick={handleClick}>
+            Delete Post
             </button>}
             </div> */}
           </div>
@@ -108,4 +108,4 @@ const ThoughtList = ({ thoughts, title }) => {
   );
 };
 
-export default ThoughtList;
+export default PostList;

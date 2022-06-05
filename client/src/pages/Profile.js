@@ -1,8 +1,8 @@
 import React from 'react';
 import { Navigate, useParams } from 'react-router-dom';
 
-import ThoughtForm from '../components/ThoughtForm';
-import ThoughtList from '../components/ThoughtList';
+import PostForm from '../components/PostForm';
+import PostList from '../components/PostList';
 import FriendList from '../components/FriendList';
 
 import { useQuery, useMutation } from '@apollo/client';
@@ -38,20 +38,10 @@ const Profile = (props) => {
     );
   }
 
-  // const handleClick = async () => {
-  //   try {
-  //     await addFriend({
-  //       variables: { id: user._id },
-  //     });
-  //   } catch (e) {
-  //     console.error(e);
-  //   }
-  // };
-
   return (
     <div>
           
-            <div >{!userParam && <ThoughtForm />}</div>
+            <div >{!userParam && <PostForm />}</div>
 
       <div className="flex-row mb-3">
         {/* <h2 className="bg-dark text-secondary p-3 display-inline-block">
@@ -67,8 +57,8 @@ const Profile = (props) => {
 
       <div className="flex-row justify-space-between mb-3">
         <div className="col-12 mb-3 col-lg-8">
-          <ThoughtList
-            thoughts={user.thoughts}
+          <PostList
+            posts={user.posts}
             title={`${user.username}'s Feed...`}
           />
         </div>

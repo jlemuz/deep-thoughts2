@@ -1,7 +1,7 @@
 {
-  "name": "deep-thoughts2",
+  "name": "meme-ories",
   "version": "1.0.0",
-  "description": "",
+  "description": "## Table-of-Contents   * [Description and Task](#description)   * [Technology](#technology)   * [Video](#video)   * [Website](#website)   * [License](#license)      * [Contributors](#Contributors)   * [Questions](#questions)",
   "main": "index.js",
   "scripts": {
     "start": "node server/server.js",
@@ -15,7 +15,7 @@
     "url": "git+https://github.com/jlemuz/deep-thoughts2.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Jose Lemuz, Ed Amezcua, Rachel Schaaf",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/jlemuz/deep-thoughts2/issues"

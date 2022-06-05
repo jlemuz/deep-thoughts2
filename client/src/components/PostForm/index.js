@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 
 import { useMutation } from '@apollo/client';
-import { ADD_THOUGHT } from '../../utils/mutations';
-import { QUERY_THOUGHTS, QUERY_ME } from '../../utils/queries';
+import { ADD_POST } from '../../utils/mutations';
+import { QUERY_POSTS, QUERY_ME } from '../../utils/queries';
 import { Typography } from '@material-ui/core';
 
 
 import PhotoCameraIcon from '@material-ui/icons/PhotoCamera';
 
-const ThoughtForm = () => {
-  const [thoughtText, setText] = useState('');
+const PostForm = () => {
+  const [postText, setText] = useState('');
   // const [characterCount, setCharacterCount] = useState(0);
 
   
@@ -29,8 +29,8 @@ const ThoughtForm = () => {
 
 
   
-  const [addThought] = useMutation(ADD_THOUGHT, {
-    update(cache, { data: { addThought } }) {
+  const [addPost] = useMutation(ADD_POST, {
+    update(cache, { data: { addPost } }) {
       
       // could potentially not exist yet, so wrap in a try/catch
     try {
@@ -38,17 +38,17 @@ const ThoughtForm = () => {
       const { me } = cache.readQuery({ query: QUERY_ME });
       cache.writeQuery({
         query: QUERY_ME,
-        data: { me: { ...me, thoughts: [...me.thoughts, addThought] } },
+        data: { me: { ...me, posts: [...me.posts, addPost] } },
       });
     } catch (e) {
-      console.warn("First thought insertion by user!")
+      console.warn("First post insertion by user!")
     }
 
-    // update thought array's cache
-    const { thoughts } = cache.readQuery({ query: QUERY_THOUGHTS });
+    // update post array's cache
+    const { posts } = cache.readQuery({ query: QUERY_POSTS });
     cache.writeQuery({
-      query: QUERY_THOUGHTS,
-      data: { thoughts: [addThought, ...thoughts] },
+      query: QUERY_POSTS,
+      data: { posts: [addPost, ...posts] },
     });
   }
 })
@@ -85,8 +85,8 @@ const ThoughtForm = () => {
     // setUploadData(data.secure_url);
 
     try {
-      await addThought({
-        variables: { thoughtText: data.secure_url },
+      await addPost({
+        variables: { postText: data.secure_url },
       });
 
       // clear form value
@@ -99,8 +99,8 @@ const ThoughtForm = () => {
 
   }
 
-//   const [addThought, { error }] = useMutation(ADD_THOUGHT, {
-//     update(cache, { data: { addThought } }) {
+//   const [addPost, { error }] = useMutation(ADD_POST, {
+//     update(cache, { data: { addPost } }) {
       
 //       // could potentially not exist yet, so wrap in a try/catch
 //     try {
@@ -108,17 +108,17 @@ const ThoughtForm = () => {
 //       const { me } = cache.readQuery({ query: QUERY_ME });
 //       cache.writeQuery({
 //         query: QUERY_ME,
-//         data: { me: { ...me, thoughts: [...me.thoughts, addThought] } },
+//         data: { me: { ...me, posts: [...me.posts, addPost] } },
 //       });
 //     } catch (e) {
-//       console.warn("First thought insertion by user!")
+//       console.warn("First post insertion by user!")
 //     }
 
-//     // update thought array's cache
-//     const { thoughts } = cache.readQuery({ query: QUERY_THOUGHTS });
+//     // update post array's cache
+//     const { posts } = cache.readQuery({ query: QUERY_POSTS });
 //     cache.writeQuery({
-//       query: QUERY_THOUGHTS,
-//       data: { thoughts: [addThought, ...thoughts] },
+//       query: QUERY_POSTS,
+//       data: { posts: [addPost, ...posts] },
 //     });
 //   }
 // })
@@ -136,8 +136,8 @@ const ThoughtForm = () => {
   //   event.preventDefault();
 
   //   try {
-  //     await addThought({
-  //       variables: { thoughtText },
+  //     await addPost({
+  //       variables: { postText },
   //     });
 
   //     // clear form value
@@ -151,7 +151,7 @@ const ThoughtForm = () => {
 
   return (
     <div>
-  <form method="post" onChange={handleOnChange} value={thoughtText} onSubmit={handleOnSubmit}>
+  <form method="post" onChange={handleOnChange} value={postText} onSubmit={handleOnSubmit}>
         <div>
           <p>  <PhotoCameraIcon size = "xlarge"></PhotoCameraIcon> 
           <Typography variant="h6">
@@ -191,7 +191,7 @@ const ThoughtForm = () => {
       >
         <textarea
           placeholder="Paste URL here..."
-          value={thoughtText}
+          value={postText}
           className="form-input col-12 col-md-9"
           onChange={handleChange}
         ></textarea>
@@ -203,4 +203,4 @@ const ThoughtForm = () => {
   );
 };
 
-export default ThoughtForm;
+export default PostForm;
